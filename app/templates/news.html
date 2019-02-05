@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{ % import 'macros.html' as macro% }
+
+<!-- Content block -->
+{% block content %}
+<div class="container-fluid">
+    <div>
+        <h3>{{ news.name }}</h3>
+    </div>
+
+     <!-- article image -->
+     
+     <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 imageToUrl" style="background: url({{headlines.imageToUrl}}) no-repeat center center">
+            </div>
+    
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 article-details">
+                <h3>{{ headlines.title }}</h3>
+    
+                <p class="title"> {{ headlines.title }}</p>
+                <p class="description"> {{ headlines.description }} </p>
+    
+    
+            </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

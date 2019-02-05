@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+__init__.py	../app/__init__.py	1;"	kind:file	line:1
+__init__.py	../app/main/__init__.py	1;"	kind:file	line:1
+config.py	../config.py	1;"	kind:file	line:1
+easy_install	../virtual/bin/easy_install	1;"	kind:file	line:1
+easy_install-3.6	../virtual/bin/easy_install-3.6	1;"	kind:file	line:1
+error.py	../app/main/error.py	1;"	kind:file	line:1
+flask	../virtual/bin/flask	1;"	kind:file	line:1
+forms.py	../app/main/forms.py	1;"	kind:file	line:1
+index	../app/main/views.py	/^def index():$/;"	kind:function	line:10
+manage.py	../manage.py	1;"	kind:file	line:1
+models.py	../app/models.py	1;"	kind:file	line:1
+news_test.py	../app/test/news_test.py	1;"	kind:file	line:1
+pip	../virtual/bin/pip	1;"	kind:file	line:1
+pip3	../virtual/bin/pip3	1;"	kind:file	line:1
+pip3.6	../virtual/bin/pip3.6	1;"	kind:file	line:1
+request.py	../app/request.py	1;"	kind:file	line:1
+views.py	../app/main/views.py	1;"	kind:file	line:1
+wheel	../virtual/bin/wheel	1;"	kind:file	line:1
