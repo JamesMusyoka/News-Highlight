@@ -42,12 +42,12 @@ def search(news_name):
    return render_template('search.html',news = searched_news)
 
 
-@main.route('/headlines/<string:id>')
-def headlines(id):
+@main.route('/news/<string:id>')
+def news(id):
    """
    View headlinse from a specific source
    """
-   headlines = get_headlines(id)
-   title = f'{id}'
+   source = get_headlines(id)
+   print (source)
 
-   return render_template('news.html',title = title,headlines = headlines)
+   return render_template('source.html',title = title,source = source)
