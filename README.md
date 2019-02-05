@@ -68,9 +68,11 @@ How to use the Application
 Create Directory on your computer to store the application.
 Initialise git on the target directory using the following command; $ git init
 On your terminal,Run git clone  https://jamo-highlights.herokuapp.com/ 
+
 On your terminal,Navigate to created directory.
 Activate virtual environment on the root directory.Run source virtual/bin/activate
 Download the latest version of pip in the virtual environment: $ curl https://bootstrap.pypa.io/get-pip.py | python
+
 Install flask in your virtual environment: (virtual)$pip install flask
 Add Bootstrap: (virtual)$ pip install flask-bootstrap
 Install Flask-Script: (virtual)$ python3.6 -m pip install flask-script
