@@ -1,4 +1,5 @@
 # News-highlights
+
 This project was generated on 4th January 2019 using python3.6.
 
 Application Description
@@ -67,7 +68,7 @@ Visual Studio Code text editor.
 How to use the Application
 Create Directory on your computer to store the application.
 Initialise git on the target directory using the following command; $ git init
-On your terminal,Run git clone  https://jamo-highlights.herokuapp.com/ 
+On your terminal,Run git clone  https://jamo-highlights.herokuapp.com 
 
 On your terminal,Navigate to created directory.
 Activate virtual environment on the root directory.Run source virtual/bin/activate
