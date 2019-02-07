@@ -2,7 +2,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
 from ..request import get_news,get_headlines
-# from ..models import News,Headlines
+from ..models import News,Headlines
 
 #views
 
@@ -20,7 +20,7 @@ def index():
    entertainment_news = get_news('entertainment')
    science_news = get_news('science')
 
-   title = 'Home - Top'
+   title = 'The latest news worldwide!'
 
 
    search_news = request.args.get('search_query')
@@ -42,12 +42,14 @@ def search(news_name):
    return render_template('search.html',news = searched_news)
 
 
-@main.route('/news/<string:id>')
+@main.route('/news/<id>')
 def news(id):
    """
-   View headlinse from a specific source
+   View headlines from a specific source
    """
-   source = get_headlines(id)
+   headlines = get_headlines(id)
    print (source)
 
-   return render_template('source.html',title = title,source = source)
+   title = f'{id}'
+
+   return render_template('source.html',title = title, myheadlines = headlines, myheadlinesid = id)
