@@ -8,7 +8,7 @@
 
         </a>
         <p>{{ item.description }} </p>
-        <a href="{{news.url}}">Read more ...</a>
+        <a href="{{item.url}}">Read more ...</a>
 
 </div> 
     {% endfor %}
@@ -26,8 +26,8 @@
     </div>
     </h4>
     <hr>
-    <p>{{source.description}}</p>
-   <a class="text-center" style = "color:crimson"target="_blank" href="/headlines/{{ source.id }}">
+    <p>{{ source.description}}</p>
+   <a class="text-center" style = "color:crimson"target="_blank" href="{{ source.url }}">
        {{ source.name }}</a>
 </li>
 </div>
