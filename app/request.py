@@ -113,6 +113,7 @@ def process_headlines(headlines_results_list):
  '''
  headlines_results = []
  for headlines_item in headlines_list:
+     
    id = headlines_item.get('id')
    title = headlines_item.get('title')
    description = headlines_item.get('description')
