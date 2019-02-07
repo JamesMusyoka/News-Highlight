@@ -10,7 +10,7 @@ class Config:
  HEADLINES_KEY = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=597b0dec338d4c37a52b93e8570d3cf7'
  SOURCE_API = 'https://newsapi.org/v2/sources?apiKey=597b0dec338d4c37a52b93e8570d3cf7'
 #  ARTICLE_API
- # SECRET_KEY = os.environ.get('SECRET_KEY')
+ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 class ProdConfig(Config):
