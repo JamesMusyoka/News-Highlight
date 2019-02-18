@@ -1,4 +1,4 @@
-# News-highlights
+# FLASK_BLOG
 
 This project was generated on 4th January 2019 using python3.6.
 
