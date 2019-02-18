@@ -1,8 +1,8 @@
 #Imports
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..request import get_news,get_headlines
-from ..models import News,Headlines
+from ..request import get_quotes,get_random
+from ..models import Quote,Random
 
 #views
 
@@ -11,45 +11,37 @@ def index():
    """
    View root page function that returns the index page and its data
    """
-   #   getting news
-   general_news = get_news('general')
-   technology_news = get_news('technology')
-   health_news = get_news('health')
-   business_news = get_news('business')
-   sport_news = get_news('sport')
-   entertainment_news = get_news('entertainment')
-   science_news = get_news('science')
 
-   title = 'The latest news worldwide!'
+   title = 'The Random Quotes'
 
 
-   search_news = request.args.get('search_query')
+   search_quotes = request.args.get('search_query')
 
-   if search_news:
-       return redirect(url_for('search',news_name=search_news))
+   if search_quotes:
+       return redirect(url_for('search',quotes_name=search_quotes))
    else:
-       return render_template('index.html', title = title, general = general_news, technology = technology_news,health = health_news,business = business_news,sport = sport_news,entertainment = entertainment_news,science = science_news )
+       return render_template('index.html', title = title)
 
-@main.route('/search/<news_name>')
-def search(news_name):
+@main.route('/search/<quotes_name>')
+def search(quotes_name):
    '''
    View function to display the search results
    '''
-   news_name_list = news_name.split(" ")
-   news_name_format = "+".join(news_name_list)
-   searched_news = search_news(news_name_format)
-   title = f'search results for {news_name}'
-   return render_template('search.html',news = searched_news)
+   quotes_name_list = quotes_name.split(" ")
+   quotes_name_format = "+".join(quotes_name_list)
+   searched_quotes = search_quotes(quotes_name_format)
+   title = f'search results for {quotes_name}'
+   return render_template('search.html',quotes = searched_quotes)
 
 
-@main.route('/news/<id>')
-def news(id):
+@main.route('/quotes/<id>')
+def quotes(id):
    """
-   View headlines from a specific source
+   View random from a specific source
    """
-   headlines = get_headlines(id)
+   random = get_random(id)
    print (source)
 
    title = f'{id}'
 
-   return render_template('source.html',title = title, myheadlines = headlines, myheadlinesid = id)
+   return render_template('source.html',title = title, myrandom = random, myrandomid = id)
