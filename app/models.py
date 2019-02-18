@@ -1,4 +1,4 @@
-class News:
+class Quotes:
  """
  News class to define  news objects
  """
@@ -10,7 +10,7 @@ class News:
      self.category = category
      self.description = description
 
-class Headlines:
+class Random:
  """
  Headlines class to define news headlines objects
  """
