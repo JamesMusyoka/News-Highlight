@@ -1,7 +1,14 @@
 {% extends 'bootstrap/base.html'%}
-{% include 'navbar.html' %}
 
-<!-- Navbar block  -->
 {% block navbar %}
-   
+   {% include 'navbar.html' %}
+{% endblock %}
+
+{{ wtf.quick_form(form) }}
+{%block styles %}
+  {{super()}}
+  <!--Importing the simple mde css and js files  -->
+  {{ simplemde.css}}
+  {{ simplemde.js }}
+
 {% endblock %}
