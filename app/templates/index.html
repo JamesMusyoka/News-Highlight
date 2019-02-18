@@ -1,73 +1,17 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
-
-<!-- Styles block  -->
-
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
-<link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-    crossorigin="anonymous">
-
-<meta charset="utf-8">
-{% endblock %}
-{% if title %}
-<title> {{ title }} </title>
-{% else %}
-<title> Welcome to an informative news site!!! </title>
-{% endif %}
-
 
 {% block content %}
-
+<style>
+      h1{
+            text-align: center;
+      }
+</style>
 <body>
-    <!-- <div class="container"> -->
-
-    <h1 style="color:blue; text-align: center"> WELCOME TO THE NEWS HIGHLIGHT <img src="https://media1.picsearch.com/is?lou7NQ_gcpWFnMrikHbC9PF6GJnnHdlUS2ArLVB2N9s&height=332"
-            width="100px" height="100px"></h1>
-    <form class='input'>
-        <div class="container">
-            <input style="width: 30%" type="text" name="news_query" placeholder="Search for a news" class="form-control">
-            <button class="btn btn-primary"><span><i class="fas fa-search"></i></span></button>
-    </form>
-
-    <div class="row">
-        <div class="card">
-
-            <div class="col-md-3">
-                <h2> General News</h2>
-                {{ macro.displayNewsList(general)}}
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <h2>Technology News</h2>
-            {{ macro.displayNewsList(technology)}}
-        </div>
-        <div class="col-md-3">
-            <h2> Health News</h2>
-            {{ macro.displayNewsList(health)}}
-        </div>
-        <div class="col-md-3">
-            <h2> Business News</h2>
-            {{ macro.displayNewsList(business)}}
-        </div>
-        <div class="col-md-3">
-            <h2> Sports News</h2>
-            {{ macro.displayNewsList(sports)}}
-        </div>
-        <div class="col-md-3">
-            <h2>Entertainment News </h2>
-            {{ macro.displayNewsList(entertainment)}}
-        </div>
-        <div class="col-md-3">
-            <h2> Science</h2>
-            {{ macro.displayNewsList(science)}}
-        </div>
-    </div>
-
-
-    </div>
+<background image="https://image.freepik.com/free-vector/motivational-quote-grunge-blue-background_1048-5146.jpg">
+<div class="container-fluid">
+           
+      <h1>WELCOME TO JAHYMO MZITO BLOG_APP</h1>
+     
+</div>
 </body>
-{% endblock %}
+{% endblock%}
