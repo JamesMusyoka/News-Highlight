@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import News, Headlines
+from .models import Quotes, Random
 
 #Getting api key
 api_key = None
@@ -18,111 +18,99 @@ secondary_url = None
 
 def configure_request(app):
    global api_key,base_url,secondary_url
-   api_key =  app.config['NEWS_API_KEY']
-   base_url =  app.config['NEWS_API_BASE_URL']
-   secondary_url = app.config['NEWS_API_SECONDARY_URL']
+   api_key =  app.config['QUOTES_API_KEY']
+   base_url =  app.config['BASE_URL']
+   secondary_url = app.config['QUOTES_API_SECONDARY_URL']
 
 
-def get_news(category):
+def get_quotes(category):
  """
  Function that gets the json response to our url request
  """
- get_news_url = base_url.format(category,api_key)
+ get_quotes_url = base_url.format(category,api_key)
 
- with urllib.request.urlopen(get_news_url) as url:
-   get_news_data = url.read()
-   get_news_response= json.loads(get_news_data)
+ with urllib.request.urlopen(get_quotes_url) as url:
+   get_quotes_data = url.read()
+   get_quotes_response= json.loads(get_quotes_data)
 
-   news_results = None
+   quotes_results = None
 
-   if get_news_response['sources']:
-     news_results_list = get_news_response['sources']
-     news_results = process_results(news_results_list)
+   if get_quotes_response['sources']:
+     quotes_results_list = get_quotes_response['sources']
+     news_results = process_results(quotes_results_list)
 
- return news_results
+ return quotes_results
 
 
-def process_results(news_results_list):
- '''
- Function  that processes the source result and transform them to a list of Objects
- Args:
-     news_list: A list of dictionaries that contain news sources details
- Returns :
-     news_results: A list of source objects
- '''
- news_results = []
- for news_item in news_results_list:
-   id = news_item.get('id')
-   name = news_item.get('name')
-   url = news_item.get('url')
-   category = news_item.get('category')
-   description = news_item.get('description')
-   country = news_item.get('country')
+def process_results(quotes_results_list):
+ 
+ quotes_results = []
+ for quotes_item in news_results_list:
+   id = quotes_item.get('id')
+   name = quotes_item.get('name')
+   url = quotes_item.get('url')
+   category = quotes_item.get('category')
+   description = quotes_item.get('description')
+   country = quotes_item.get('country')
 
 
    if name:
-     news_object = News(id,name,url,category,description
+     quotes_object = Quotes(id,name,url,category,description
      )
-     news_results.append(news_object)
+     quotes_results.append(quotes_object)
 
- return news_results
-
-
-def search_news(news_name):
-
-    search_news_url = 'https://newsapi.org/v2/sources?category={}&apiKey={}'.format(api_key, news_name)
-    with urllib.request.urlopen(search_news_url) as url:
-        search_news_data = url.read()
-        search_news_response = json.loads(search_news_data)
-
-        search_news_results = None
-
-        if search_news_response['sources']:
-            search_news_list = search_news_response['sources']
-            search_news_results = process_results (search_news_list)
-
-    return search_news_results
+ return Quotes_results
 
 
-def get_headlines(id):
+def search_quotes(news_name):
+
+    search_quotes_url = 'http://quotes.stormconsultancy.co.uk/{}.json'.format(api_key, news_name)
+    with urllib.request.urlopen(search_quotes_url) as url:
+        search_quotes_data = url.read()
+        search_quotes_response = json.loads(search_quotes_data)
+
+        search_quotes_results = None
+
+        if search_quotes_response['sources']:
+            search_quotes_list = search_quotes_response['sources']
+            search_quotes_results = process_results (search_quotes_list)
+
+    return search_quotes_results
+
+
+def get_random(id):
  """
  Function that gets the json response to our url request
  """
- get_headlines_url = secondary_url.format(id,api_key)
+ get_random_url = secondary_url.format(id,api_key)
 
- with urllib.request.urlopen(get_headlines_url) as url:
-   get_headlines_data = url.read()
-   get_headlines_response= json.loads(get_headlines_data)
+ with urllib.request.urlopen(get_random_url) as url:
+   get_random_data = url.read()
+   get_random_response= json.loads(get_random_data)
 
-   headlines_results = None
+   random_results = None
 
-   if get_headlines_response['headlines']:
-     headlines_results_list = get_headlines_response['headlines']
-     headlines_results = process_headlines(headlines_results_list)
+   if get_random_response['random']:
+     random_results_list = get_random_response['random']
+     random_results = process_random(random_results_list)
 
- return headlines_results
+ return random_results
 
 
-def process_headlines(headlines_results_list):
- '''
- Function  that processes the headlines result and transforms them to a list of Objects
- Args:
-     article_list: A list of dictionaries that contain headlines details
- Returns :
-     headlines_results: A list of headlines objects
- '''
- headlines_results = []
- for headlines_item in headlines_list:
+def process_random(random_results_list):
+ 
+ random_results = []
+ for random_item in random_list:
      
-   id = headlines_item.get('id')
-   title = headlines_item.get('title')
-   description = headlines_item.get('description')
-   url =  headlines_item.get('url')
-   urlToImage = headlines_item.get('urlToImage')
-   publishedAt = headlines_item.get('publishedAt')
+   id = random_item.get('id')
+   title = random_item.get('title')
+   description = random_item.get('description')
+   url =  random_item.get('url')
+   urlToImage = random_item.get('urlToImage')
+   publishedAt = random_item.get('publishedAt')
 
    if title:
-     headlines_object = Headlines(id,title,description,url,urlToImage,publishedAt)
-     headlines_results.append(headlines_object)
+     random_object = random(id,title,description,url,urlToImage,publishedAt)
+     random_results.append(random_object)
 
- return headlines_results
+ return random_results
