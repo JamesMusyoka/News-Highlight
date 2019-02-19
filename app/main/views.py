@@ -9,7 +9,7 @@ from .forms import BlogForm,UpdateProfile
 from .. import db
 import datetime
 from ..email import mail_message
-import markdown2 
+# import markdown2 
 
 
 @main.route('/index', methods=['GET', 'POST'])
